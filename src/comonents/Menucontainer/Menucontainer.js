@@ -1,5 +1,6 @@
 import React from "react";
 import MenuItems from "../MenuItems/MenuI-items";
+import "./MenuContainer.css";
 
 class MenuContainer extends React.Component {
   constructor() {
@@ -42,17 +43,16 @@ class MenuContainer extends React.Component {
     };
   }
 
-
-  render()
-  {
-      return(
-          this.state.sections.map(
-
-            items=><MenuItems key={items.id} title ={items.title} />
-          )
-      )
+  render() {
+    return (
+      <div className ="Menu-container">
+        {this.state.sections.map((items,index) => (
+        
+          <MenuItems key={items.id} title={items.title} image ={items.imageUrl}/>
+        ))}
+      </div>
+    );
   }
 }
-
 
 export default MenuContainer;
