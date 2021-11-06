@@ -9,6 +9,7 @@ function Header()
             
             <Link to ="/"><Logo /></Link>
             <Link to="/shop">SHOP</Link>
+            <Link to="/signIn" > SignIn</Link>
 
         </div>
     )
