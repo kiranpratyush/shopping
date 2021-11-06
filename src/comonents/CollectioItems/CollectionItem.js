@@ -7,7 +7,7 @@ function CollectionItem({ items }) {
     })
     .map((element) => {
       return (
-        <div class Name="CollectionItem" key={element.id}>
+        <div className="CollectionItem" key={element.id}>
           {element.name}
         </div>
       );
