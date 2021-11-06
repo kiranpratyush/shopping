@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./CollectionItem.css"
 function CollectionItem({ items }) {
   return items
     .filter((_, index) => {
@@ -8,7 +8,9 @@ function CollectionItem({ items }) {
     .map((element) => {
       return (
         <div className="CollectionItem" key={element.id}>
-          {element.name}
+          <div className ="Image" style ={{backgroundImage:`url(${element.imageUrl})`}}></div>
+          <div className="ItemName">{element.name}</div>
+          <div className="ItemPrice">{element.price}</div>
         </div>
       );
     });

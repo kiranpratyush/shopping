@@ -1,7 +1,7 @@
 import React from "react";
 import SHOP_DATA from "./CollectionData";
 import CollectionItem from "../CollectioItems/CollectionItem";
-
+import "./CollectionContainer.css"
 class CollectionContainer extends React.Component {
   constructor() {
     super();
@@ -14,9 +14,11 @@ class CollectionContainer extends React.Component {
     return this.state.contents.map((elements) => {
       const { id, title, items } = elements;
       return (
-        <div className="CollectionContainer" key={id}>
+        <div  key={id}>
           <h1>{title.toUpperCase()}</h1>
-          <CollectionItem items={items} />
+          <div className="CollectionContainer">
+          <CollectionItem className ="CollectionContainer" items={items} />
+          </div>
         </div>
       );
     });

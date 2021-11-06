@@ -1,0 +1,23 @@
+.CollectionItem{
+    height:50vh;
+    display:flex;
+    flex-direction: column;
+    flex:1;
+    
+
+
+}
+
+.Image{
+    height:95%;
+    width:100%;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+.ItemPrice{
+ align-self: flex-end;
+ transform: translatey(-20px);
+}
