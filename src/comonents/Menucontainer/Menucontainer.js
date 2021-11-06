@@ -2,9 +2,11 @@ import React from "react";
 import MenuItems from "../MenuItems/MenuI-items";
 import "./MenuContainer.css";
 
+
+
 class MenuContainer extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       sections: [
         {
@@ -46,13 +48,13 @@ class MenuContainer extends React.Component {
   render() {
     return (
       <div className ="Menu-container">
-        {this.state.sections.map((items,index) => (
+        {this.state.sections.map((items) => (
         
-          <MenuItems key={items.id} title={items.title} image ={items.imageUrl}/>
+          <MenuItems key={items.id} title={items.title} image ={items.imageUrl} linkUrl = {items.linkUrl} />
         ))}
       </div>
     );
   }
 }
 
-export default MenuContainer;
+export default MenuContainer ;

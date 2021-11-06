@@ -1,9 +1,11 @@
 import React from "react"
 import "./menuitem.css"
-function MenuItems({title,image})
-{
+import {withRouter} from 'react-router-dom'
+function MenuItems({title,image,match,linkUrl,history})
+{   
     return(
-        <div className="menu-items" style ={{backgroundImage:`url("${image}")`}}>
+        <div className="menu-items" style ={{backgroundImage:`url("${image}")`}} onClick = {()=> history.push(`${match.url}${linkUrl}`)
+      } >
         <div className ="title">
         <h1>{title}</h1>
         <span>shop Now</span>
@@ -13,4 +15,4 @@ function MenuItems({title,image})
 }
 
 
-export default MenuItems
+export default withRouter(MenuItems)
