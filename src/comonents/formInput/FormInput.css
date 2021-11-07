@@ -1,0 +1,11 @@
+.group{
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.form-input{
+    border:none;
+    border-bottom: 1px solid black;
+    width:340px;
+}
