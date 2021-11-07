@@ -36,7 +36,7 @@ class SignInComponent extends React.Component {
                 <FormInput handleChange ={this.handleChange} name ="email" value = {this.state.email} type="email" label="Email"/>
                 <FormInput handleChange ={this.handleChange} name ="password" value = {this.state.password} type="password" label="Password"/>
                 <Button text ="SIGN IN" color ="black" type ="submit" width="200px" height="60px" />
-                <Button text ="SIGN IN WITH GOOGLE" color ="black" type ="submit" width="200px" height="60px" onClick ={SignIn} />
+                <Button text ="SIGN IN WITH GOOGLE" color ="black" type ="submit" width="200px" height="60px" SignIn ={SignIn}  google = {true}/>
 
             </form>
 

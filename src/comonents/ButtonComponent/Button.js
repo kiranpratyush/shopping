@@ -1,14 +1,24 @@
 
 import React from "react"
-import SignIn from "../../FireBase/firebase"
 import "./Button.css"
 
 
-function Button({text,color,width,height,...other})
-{
+function Button({text,color,width,height,google,SignIn,...other})
+{ if(google)
+    {
+        return(
+        
+            <button {...other}style={{backgroundColor:color,height:height,width:width}} onClick ={SignIn}>{text}</button>
+        )
+    }
+  else
+  {
     return(
-        <button {...other}style={{backgroundColor:color,height:height,width:width}} onClick ={SignIn}>{text}</button>
+        
+        <button {...other}style={{backgroundColor:color,height:height,width:width}}>{text}</button>
     )
+  }
+    
 }
 
 export default Button
