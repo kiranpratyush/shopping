@@ -1,6 +1,8 @@
 import React from "react";
 import "./SignIn.css"
 import FormInput from "../formInput/FormInput";
+import Button from "../ButtonComponent/Button";
+import SignIn from "../../FireBase/firebase";
 class SignInComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,7 @@ class SignInComponent extends React.Component {
     this.handleChange = this.handleChange.bind(this)
   }
   handleSubmit(e)
-  {
+  {   
       e.preventDefault()
       this.setState({email:"",password:""})
   }
@@ -21,7 +23,7 @@ class SignInComponent extends React.Component {
       this.setState({[e.target.name]:e.target.value},()=>console.log(this.state.email,this.state.password))
   }
   render()
-  {
+  { 
     return(
         <div className="formContainer">
             <h1>I already have an account</h1>
@@ -33,7 +35,9 @@ class SignInComponent extends React.Component {
                 <input type="email" name ="email" value= {this.state.email} onChange ={this.handleChange}></input> */}
                 <FormInput handleChange ={this.handleChange} name ="email" value = {this.state.email} type="email" label="Email"/>
                 <FormInput handleChange ={this.handleChange} name ="password" value = {this.state.password} type="password" label="Password"/>
-                <button type="Submit">Submit</button>
+                <Button text ="SIGN IN" color ="black" type ="submit" width="200px" height="60px" />
+                <Button text ="SIGN IN WITH GOOGLE" color ="black" type ="submit" width="200px" height="60px" onClick ={SignIn} />
+
             </form>
 
         </div>
