@@ -41,4 +41,6 @@ function SignIn()
         console.log(error)
     })
 }
+
 export default SignIn
+export  const authValue =auth;

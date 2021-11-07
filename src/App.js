@@ -4,12 +4,36 @@ import ShopPage from './pages/ShopPage/ShopPage';
 import {Route,Switch} from "react-router-dom"
 import Header from './comonents/HeaderComponent/header';
 import SignIn from './pages/SignInPage/SignIn';
+import React from 'react';
+import {authValue} from "./FireBase/firebase"
 
 
-function App() {
+class App extends React.Component {
+
+  constructor()
+  {
+    super()
+    this.state ={currentUser:null}
+  }
+  unsuscribe = null;
+  componentDidMount()
+  {
+    this.unsuscribe =authValue.onAuthStateChanged((user)=>
+    {
+      this.setState({currentUser:user})
+      console.log(authValue)
+    })
+  }
+  componentWillUnmount()
+  {
+    this.unsuscribe()
+  }
+
+  render()
+  {
   return (
     <div>
-      <Header />
+      <Header authStatus ={this.state.currentUser}/>
       <Switch>
       
       <Route exact path ="/" component ={Homepage} />
@@ -20,6 +44,7 @@ function App() {
       </Switch>
     </div>
   );
+  }
 }
 
 export default App;
