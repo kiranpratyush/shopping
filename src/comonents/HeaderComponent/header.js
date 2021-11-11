@@ -11,7 +11,9 @@ function Header({ authStatus }) {
       </Link>
       <Link to="/shop">SHOP</Link>
       {authStatus ? (
-        <div onClick={() => authValue.signOut()} style ={{cursor:"pointer"}}>SIGNOUT</div>
+        <div onClick={() => {authValue.signOut()
+           console.log("i am out")
+          console.log(authValue)}} style ={{cursor:"pointer"}}>SIGNOUT</div>
       ) : (
         <Link to="/SignIn">SIGNIN</Link>
       )}
