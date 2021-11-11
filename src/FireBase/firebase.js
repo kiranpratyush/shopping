@@ -1,5 +1,6 @@
 import {initializeApp} from 'firebase/app'
 import {getAuth,GoogleAuthProvider,signInWithPopup} from 'firebase/auth'
+import {getFirestore,doc,setDoc} from "firebase/firestore"
 
 const firebaseConfig = {
 
@@ -21,7 +22,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
   
 
-
+const db = getFirestore()
 const auth = getAuth(app)
 const provider = new GoogleAuthProvider();
 
@@ -31,16 +32,40 @@ function SignIn()
     .then((result)=>
     {
         const credential = GoogleAuthProvider.credentialFromResult(result)
-        const token = credential.accessToken;
-        const user = result.user;
-        console.log(user)
-        console.log(token)
     })
     .catch((error)=>
     {
         console.log(error)
     })
 }
+
+
+export async function addProfileData(user)
+{
+    try{if(!user)
+    {
+        return
+    }
+    else{
+        const ref  = doc(db,`users/${user.uid}`)
+        // Here I get a reference to the user document
+        const dateCreated = new Date()
+        const docData = {name:user.displayName,date:dateCreated}
+
+        await setDoc(ref,docData,{merge:true})
+        // set Doc merges the value if new Something is added;
+        // refer fireBase doc
+
+
+    }
+}
+    catch(e)
+    {
+        console.log(e.message)
+    }
+}
+
+
 
 export default SignIn
 export  const authValue =auth;

@@ -5,7 +5,7 @@ import {Route,Switch} from "react-router-dom"
 import Header from './comonents/HeaderComponent/header';
 import SignIn from './pages/SignInPage/SignIn';
 import React from 'react';
-import {authValue} from "./FireBase/firebase"
+import {authValue,addProfileData} from "./FireBase/firebase"
 
 
 class App extends React.Component {
@@ -20,8 +20,9 @@ class App extends React.Component {
   {
     this.unsuscribe =authValue.onAuthStateChanged((user)=>
     {
+      // this will set states when the state will be changed
       this.setState({currentUser:user})
-      console.log(authValue)
+      addProfileData(user)
     })
   }
   componentWillUnmount()
